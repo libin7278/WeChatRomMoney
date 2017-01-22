@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">豆豆抢你红包啦</string>
+    <string name="testaccessibility">accessibilityDemo</string>
+    <string name="desc">微信抢红包</string>
+    <string name="open_service_title">需要开启辅助服务正常使用</string>
+    <string name="open_service_button">打开辅助服务</string>
+    <string name="tips">找到[豆豆抢你红包啦]，然后开启服务即可</string>
+
+    <string name="wx_mode_0">自动抢</string>
+    <string name="wx_mode_1">抢单聊红包，群聊红包只通知</string>
+    <string name="wx_mode_2">抢群聊红包，单聊红包只通知</string>
+    <string name="wx_mode_3">通知手动抢(防封号)</string>
+
+    <string name="after_get_back_home">返回桌面</string>
+    <string name="after_get_none">静静地看着</string>
+
+    <string name="after_open_hongbao">拆红包</string>
+    <string name="after_open_see">看看大家的手气(仅支持微信6.3.8版本以下)</string>
+    <string name="after_open_none">静静地看着</string>
+</resources>

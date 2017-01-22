@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_explain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:fitsSystemWindows="true">
+
+    <TextView
+        android:textColor="@color/app_main_color"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:textSize="23sp"
+        android:text="功能说明"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:textSize="18sp"
+        android:textColor="#3d061f"
+        android:text="第一点:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:textSize="15sp"
+        android:textColor="@color/app_main_color"
+        android:text="使用本软件的前提:Android 4.1 以上版本"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:textSize="18sp"
+        android:textColor="#3d061f"
+        android:text="第二点:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:textSize="15sp"
+        android:textColor="@color/app_main_color"
+        android:text="本软件的使用需要开启 '无障碍' 模式"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:textSize="18sp"
+        android:textColor="#3d061f"
+        android:text="第三点:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:textSize="15sp"
+        android:textColor="@color/app_main_color"
+        android:text="需要去除微信消息 免打扰 "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:textSize="18sp"
+        android:textColor="#3d061f"
+        android:text="第四点:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:textSize="15sp"
+        android:textColor="@color/app_main_color"
+        android:text="微信不能设置软件锁"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:textSize="18sp"
+        android:textColor="#3d061f"
+        android:text="第五点:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:textSize="15sp"
+        android:textColor="@color/app_main_color"
+        android:text="本软件无木马病毒 项目本人已经开源 可放心使用"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:text="github地址"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_git"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:background="@drawable/explainbtnshape"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"/>
+
+    <Button
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:text="个人博客"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_blog"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:background="@drawable/explainbtnshape"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"/>
+</LinearLayout>
