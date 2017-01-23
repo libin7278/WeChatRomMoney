@@ -11,6 +11,8 @@ import android.content.SharedPreferences;
  * @author LeonLee
  */
 public class Config {
+    public static final String TAG = "weChartRobMoney";
+
 
     public static final String ACTION_QIANGHONGBAO_SERVICE_DISCONNECT = "com.codeboy.qianghongbao.ACCESSBILITY_DISCONNECT";
     public static final String ACTION_QIANGHONGBAO_SERVICE_CONNECT = "com.codeboy.qianghongbao.ACCESSBILITY_CONNECT";

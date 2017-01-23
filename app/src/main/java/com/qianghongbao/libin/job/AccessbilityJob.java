@@ -13,6 +13,5 @@ public interface AccessbilityJob {
     void onCreateJob(QiangHongBaoService service);
     void onReceiveJob(AccessibilityEvent event);
     void onStopJob();
-    void onNotificationPosted(IStatusBarNotification service);
     boolean isEnable();
 }

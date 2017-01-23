@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">豆豆抢你红包啦</string>
+    <string name="app_name">彬神全自动抢红包</string>
     <string name="testaccessibility">accessibilityDemo</string>
     <string name="desc">微信抢红包</string>
     <string name="open_service_title">需要开启辅助服务正常使用</string>

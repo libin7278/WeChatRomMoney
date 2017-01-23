@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -35,7 +36,9 @@ public class MainActivity extends BaseActivity {
 
         findView();
 
-        showOpenAccessibilityServiceDialog();
+        if(!QiangHongBaoService.isRunning()){
+            showOpenAccessibilityServiceDialog();
+        }
 
         IntentFilter filter = new IntentFilter();
         filter.addAction(Config.ACTION_QIANGHONGBAO_SERVICE_CONNECT);
@@ -83,16 +86,16 @@ public class MainActivity extends BaseActivity {
                 return;
             }
             String action = intent.getAction();
-            Log.d("MainActivity", "receive-->" + action);
+            Log.d(Config.TAG, "接收广播-->" + action);
             if(Config.ACTION_QIANGHONGBAO_SERVICE_CONNECT.equals(action)) {
-                Log.e("TAG","抢红包"+Config.ACTION_QIANGHONGBAO_SERVICE_CONNECT);
+                Log.e(Config.TAG,"广播接收抢红包 辅助服务连接==>"+Config.ACTION_QIANGHONGBAO_SERVICE_CONNECT);
             } else if(Config.ACTION_QIANGHONGBAO_SERVICE_DISCONNECT.equals(action)) {
-                Log.e("TAG","抢红包"+Config.ACTION_QIANGHONGBAO_SERVICE_DISCONNECT);
-                //showOpenAccessibilityServiceDialog();
+                Log.e(Config.TAG,"广播接收抢红包 辅助服务断开==>"+Config.ACTION_QIANGHONGBAO_SERVICE_DISCONNECT);
+                showOpenAccessibilityServiceDialog();
             } else if(Config.ACTION_NOTIFY_LISTENER_SERVICE_CONNECT.equals(action)) {
-                Log.e("TAG","抢红包"+Config.ACTION_NOTIFY_LISTENER_SERVICE_CONNECT);
+                Log.e(Config.TAG,"广播接收抢红包 通知栏开启==>"+Config.ACTION_NOTIFY_LISTENER_SERVICE_CONNECT);
             } else if(Config.ACTION_NOTIFY_LISTENER_SERVICE_DISCONNECT.equals(action)) {
-                Log.e("TAG","抢红包"+Config.ACTION_NOTIFY_LISTENER_SERVICE_DISCONNECT);
+                Log.e(Config.TAG,"广播接收抢红包 通知栏关闭==>"+Config.ACTION_NOTIFY_LISTENER_SERVICE_DISCONNECT);
             }
         }
     };
@@ -129,27 +132,9 @@ public class MainActivity extends BaseActivity {
         }
     }
 
-//    /** 更新快速读取通知的设置*/
-//    public void updateNotifyPreference() {
-//        if(notificationPref == null) {
-//            return;
-//        }
-//        boolean running = QiangHongBaoService.isNotificationServiceRunning();
-//        boolean enable = Config.getConfig(this).isEnableNotificationService();
-//        if( enable && running && !notificationPref.isChecked()) {
-//            QHBApplication.eventStatistics(this, "notify_service", String.valueOf(true));
-//            notificationChangeByUser = false;
-//            notificationPref.setChecked(true);
-//        } else if((!enable || !running) && notificationPref.isChecked()) {
-//            notificationChangeByUser = false;
-//            notificationPref.setChecked(false);
-//        }
-//    }
-
     @Override
     public void onResume() {
         super.onResume();
-        //updateNotifyPreference();
     }
 
     @Override
