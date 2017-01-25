@@ -61,6 +61,12 @@ public class QiangHongBaoService extends AccessibilityService {
     }
 
     @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        return START_STICKY_COMPATIBILITY;
+        //return super.onStartCommand(intent, flags, startId);
+    }
+
+    @Override
     public void onDestroy() {
         super.onDestroy();
         Log.d(Config.TAG, "qianghongbao service destory");
@@ -80,6 +86,10 @@ public class QiangHongBaoService extends AccessibilityService {
         //发送广播，已经断开辅助服务
         Intent intent = new Intent(Config.ACTION_QIANGHONGBAO_SERVICE_DISCONNECT);
         sendBroadcast(intent);
+
+        Intent localIntent = new Intent();
+        localIntent.setClass(this, QiangHongBaoService.class); // 销毁时重新启动Service
+        this.startService(localIntent);
     }
 
     @Override
