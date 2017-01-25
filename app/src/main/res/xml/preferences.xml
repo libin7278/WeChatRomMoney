@@ -28,4 +28,13 @@
             android:entries="@array/wechat_after_get_settings_titles"
             android:entryValues="@array/wechat_after_get_settings_values"/>
 
+        <ListPreference
+            android:title="@string/notify_sound"
+            android:defaultValue="3"
+            android:summary="@string/sound_music_shake"
+            android:key="KEY_NOTIFY_SOUNDS"
+            android:dialogTitle="抢红包提示音"
+            android:entries="@array/wechat_notify_sound_titles"
+            android:entryValues="@array/wechat_notify_sound_values"/>
+
 </PreferenceScreen>

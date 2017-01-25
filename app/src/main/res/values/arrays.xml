@@ -33,4 +33,18 @@
         <item>2</item>
         <item>3</item>
     </string-array>
+
+    <string-array name="wechat_notify_sound_titles">
+        <item>@string/sound_close</item>
+        <item>@string/sound_shake</item>
+        <item>@string/sound_music</item>
+        <item>@string/sound_music_shake</item>
+    </string-array>
+
+    <string-array name="wechat_notify_sound_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
 </resources>

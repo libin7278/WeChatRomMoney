@@ -19,6 +19,7 @@ import com.qianghongbao.libin.R;
 import com.qianghongbao.libin.base.BaseActivity;
 import com.qianghongbao.libin.config.Config;
 import com.qianghongbao.libin.service.QiangHongBaoService;
+import com.qianghongbao.libin.utils.NotifyHelper;
 
 public class MainActivity extends BaseActivity {
     private Dialog mTipsDialog;
@@ -45,6 +46,7 @@ public class MainActivity extends BaseActivity {
         registerReceiver(qhbConnectReceiver, filter);
 
         setOnClick();
+
     }
 
     private void setOnClick() {

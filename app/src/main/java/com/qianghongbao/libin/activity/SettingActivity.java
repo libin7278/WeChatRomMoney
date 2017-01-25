@@ -81,6 +81,20 @@ public class SettingActivity extends BaseActivity {
             });
             wxAfterGetPre.setSummary(wxAfterGetPre.getEntries()[Integer.parseInt(wxAfterGetPre.getValue())]);
 
+            //提示音
+            final ListPreference wxSoundMode = (ListPreference) findPreference(Config.KEY_NOTIFY_SOUNDS);
+            wxSoundMode.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference, Object newValue) {
+                    int value = Integer.parseInt(String.valueOf(newValue));
+                    preference.setSummary(wxSoundMode.getEntries()[value]);
+                    SPUtil.put(SettingActivity.this,Config.KEY_NOTIFY_SOUNDS,value);
+                    Log.e(Config.TAG,"设置抢红包提示音"+value);
+                    Log.e(Config.TAG,"设置抢红包提示音"+wxSoundMode.getEntries()[value]);
+                    return true;
+                }
+            });
+            wxAfterGetPre.setSummary(wxAfterGetPre.getEntries()[Integer.parseInt(wxAfterGetPre.getValue())]);
         }
     }
 }

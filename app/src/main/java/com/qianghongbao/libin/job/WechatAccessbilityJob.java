@@ -19,6 +19,7 @@ import android.view.accessibility.AccessibilityNodeInfo;
 import com.qianghongbao.libin.config.Config;
 import com.qianghongbao.libin.service.QiangHongBaoService;
 import com.qianghongbao.libin.utils.AccessibilityHelper;
+import com.qianghongbao.libin.utils.NotifyHelper;
 import com.qianghongbao.libin.utils.SPUtil;
 
 
@@ -117,6 +118,16 @@ public class WechatAccessbilityJob extends BaseAccessbilityJob {
                     String content = text.toString();
                     Log.i(Config.TAG, "通知栏文本===>:" + content);
                     if (content.contains(HONGBAO_TEXT_KEY)) {
+                        //提示音抢红包或者震动
+                        int soundMode = (int) SPUtil.get(getContext(), Config.KEY_NOTIFY_SOUNDS, 0);
+                        if(soundMode == 1){
+                            NotifyHelper.vibrator(getContext());
+                       }else if(soundMode == 2 ){
+                            NotifyHelper.sound(getContext());
+                        }else if (soundMode == 3){
+                            NotifyHelper.vibrator(getContext());
+                            NotifyHelper.sound(getContext());
+                        }
                         //模拟打开通知栏消息
                         if (event.getParcelableData() != null
                                 &&

@@ -8,7 +8,9 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.PowerManager;
 import android.os.Vibrator;
+import android.util.Log;
 
+import com.qianghongbao.libin.R;
 import com.qianghongbao.libin.config.Config;
 
 import java.util.Calendar;
@@ -22,11 +24,21 @@ public class NotifyHelper {
     private static KeyguardManager sKeyguardManager;
     private static PowerManager sPowerManager;
 
+    /**
+     * 获取mp3文件的路径
+     *
+     * @return 路径
+     */
+    public static String getMp3Path(Context mContext) {
+        return "android.resource://" + mContext.getPackageName() + "/" + R.raw.notify;
+    }
+
     /** 播放声音*/
     public static void sound(Context context) {
         try {
             MediaPlayer player = MediaPlayer.create(context,
-                    Uri.parse("file:///system/media/audio/ui/camera_click.ogg"));
+                    R.raw.notify);
+            Log.e(Config.TAG,getMp3Path(context)+".mp3");
             player.start();
         } catch (Exception e) {
             e.printStackTrace();

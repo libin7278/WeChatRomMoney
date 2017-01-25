@@ -14,6 +14,13 @@
     <string name="after_get_back_home">返回桌面(慎用,会一直返回桌面)</string>
     <string name="after_get_none">静静地看着</string>
 
+    <string name="notify_sound">提示音</string>
+
     <string name="after_open_hongbao">拆红包</string>
     <string name="after_open_none">静静地看着</string>
+
+    <string name="sound_close">关闭</string>
+    <string name="sound_shake">震动</string>
+    <string name="sound_music">铃声</string>
+    <string name="sound_music_shake">震动并响铃</string>
 </resources>

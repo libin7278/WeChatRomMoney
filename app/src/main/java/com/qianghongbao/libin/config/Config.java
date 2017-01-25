@@ -5,11 +5,7 @@ import android.content.SharedPreferences;
 import android.util.Log;
 
 /**
- * <p>Created 16/1/15 下午10:59.</p>
- * <p><a href="mailto:codeboy2013@gmail.com">Email:codeboy2013@gmail.com</a></p>
- * <p><a href="http://www.happycodeboy.com">LeonLee Blog</a></p>
- *
- * @author LeonLee
+ * Created by libin on 17/1/22.
  */
 public class Config {
     public static final String TAG = "weChartRobMoney";
@@ -26,6 +22,7 @@ public class Config {
     public static final String KEY_WECHAT_AFTER_OPEN_HONGBAO = "KEY_WECHAT_AFTER_OPEN_HONGBAO";
     public static final String KEY_WECHAT_DELAY_TIME = "KEY_WECHAT_DELAY_TIME";
     public static final String KEY_WECHAT_AFTER_GET_HONGBAO = "KEY_WECHAT_AFTER_GET_HONGBAO";
+    public static final String KEY_NOTIFY_SOUNDS = "KEY_NOTIFY_SOUNDS";
     public static final String KEY_WECHAT_MODE = "KEY_WECHAT_MODE";
 
     public static final String KEY_NOTIFICATION_SERVICE_ENABLE = "KEY_NOTIFICATION_SERVICE_ENABLE";
