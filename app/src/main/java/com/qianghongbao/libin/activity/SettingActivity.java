@@ -1,7 +1,5 @@
 package com.qianghongbao.libin.activity;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 
 import com.qianghongbao.libin.R;
@@ -13,8 +11,6 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 
 /**
  * 设置
@@ -84,6 +80,7 @@ public class SettingActivity extends BaseActivity {
                 }
             });
             wxAfterGetPre.setSummary(wxAfterGetPre.getEntries()[Integer.parseInt(wxAfterGetPre.getValue())]);
+
         }
     }
 }
