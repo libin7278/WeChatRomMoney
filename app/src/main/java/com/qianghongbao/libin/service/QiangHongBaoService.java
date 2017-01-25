@@ -15,7 +15,6 @@ import com.qianghongbao.libin.BuildConfig;
 import com.qianghongbao.libin.config.Config;
 import com.qianghongbao.libin.job.AccessbilityJob;
 import com.qianghongbao.libin.job.WechatAccessbilityJob;
-import com.qianghongbao.libin.notification.IStatusBarNotification;
 
 import java.util.ArrayList;
 import java.util.HashMap;

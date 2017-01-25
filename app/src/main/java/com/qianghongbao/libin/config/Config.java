@@ -2,6 +2,7 @@ package com.qianghongbao.libin.config;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 /**
  * <p>Created 16/1/15 下午10:59.</p>
@@ -99,23 +100,9 @@ public class Config {
         return defaultValue;
     }
 
-    /** 获取抢微信红包的模式*/
-    public int getWechatMode() {
-        int defaultValue = 0;
-        String result = preferences.getString(KEY_WECHAT_MODE, String.valueOf(defaultValue));
-        try {
-            return Integer.parseInt(result);
-        } catch (Exception e) {}
-        return defaultValue;
-    }
-
     /** 是否启动通知栏模式*/
     public boolean isEnableNotificationService() {
         return preferences.getBoolean(KEY_NOTIFICATION_SERVICE_ENABLE, false);
-    }
-
-    public void setNotificationServiceEnable(boolean enable) {
-        preferences.edit().putBoolean(KEY_NOTIFICATION_SERVICE_ENABLE, enable).apply();
     }
 
     /** 是否开启声音*/
@@ -128,11 +115,6 @@ public class Config {
         return preferences.getBoolean(KEY_NOTIFY_VIBRATE, true);
     }
 
-    /** 是否开启夜间免打扰模式*/
-    public boolean isNotifyNight() {
-        return preferences.getBoolean(KEY_NOTIFY_NIGHT_ENABLE, false);
-    }
-
     /** 免费声明*/
     public boolean isAgreement() {
         return preferences.getBoolean(KEY_AGREEMENT, false);
@@ -143,4 +125,8 @@ public class Config {
         preferences.edit().putBoolean(KEY_AGREEMENT, agreement).apply();
     }
 
+    /** 是否开启夜间免打扰模式*/
+    public boolean isNotifyNight() {
+        return preferences.getBoolean(KEY_NOTIFY_NIGHT_ENABLE, false);
+    }
 }

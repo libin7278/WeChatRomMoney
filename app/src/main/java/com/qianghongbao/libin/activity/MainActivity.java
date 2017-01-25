@@ -1,16 +1,13 @@
 package com.qianghongbao.libin.activity;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -92,10 +89,6 @@ public class MainActivity extends BaseActivity {
             } else if(Config.ACTION_QIANGHONGBAO_SERVICE_DISCONNECT.equals(action)) {
                 Log.e(Config.TAG,"广播接收抢红包 辅助服务断开==>"+Config.ACTION_QIANGHONGBAO_SERVICE_DISCONNECT);
                 showOpenAccessibilityServiceDialog();
-            } else if(Config.ACTION_NOTIFY_LISTENER_SERVICE_CONNECT.equals(action)) {
-                Log.e(Config.TAG,"广播接收抢红包 通知栏开启==>"+Config.ACTION_NOTIFY_LISTENER_SERVICE_CONNECT);
-            } else if(Config.ACTION_NOTIFY_LISTENER_SERVICE_DISCONNECT.equals(action)) {
-                Log.e(Config.TAG,"广播接收抢红包 通知栏关闭==>"+Config.ACTION_NOTIFY_LISTENER_SERVICE_DISCONNECT);
             }
         }
     };

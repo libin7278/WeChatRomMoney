@@ -12,17 +12,15 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
-import android.os.Parcelable;
 import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 
-import com.qianghongbao.libin.BuildConfig;
 import com.qianghongbao.libin.config.Config;
-import com.qianghongbao.libin.notification.IStatusBarNotification;
 import com.qianghongbao.libin.service.QiangHongBaoService;
 import com.qianghongbao.libin.utils.AccessibilityHelper;
-import com.qianghongbao.libin.utils.NotifyHelper;
+import com.qianghongbao.libin.utils.SPUtil;
+
 
 import java.util.List;
 
@@ -213,7 +211,11 @@ public class WechatAccessbilityJob extends BaseAccessbilityJob {
             mCurrentWindow = WINDOW_LUCKYMONEY_DETAIL;
             //拆完红包后看详细的纪录界面
             Log.i(Config.TAG, "拆完红包后看详细的纪录界面");
-            if (getConfig().getWechatAfterGetHongBaoEvent() == Config.WX_AFTER_GET_GOHOME) { //返回主界面，以便收到下一次的红包通知
+
+            int isGetHome = (int) SPUtil.get(getContext(), Config.KEY_WECHAT_AFTER_GET_HONGBAO, 1);
+
+            Log.e(Config.TAG,"拆开红包后是否返回桌面===》"+ isGetHome +"  0返回桌面 , 1静静看着");
+            if (isGetHome == Config.WX_AFTER_GET_GOHOME) { //返回主界面，以便收到下一次的红包通知
                 AccessibilityHelper.performHome(getService());
             }
         } else if ("com.tencent.mm.ui.LauncherUI".equals(event.getClassName())) {
@@ -239,9 +241,9 @@ public class WechatAccessbilityJob extends BaseAccessbilityJob {
 
         AccessibilityNodeInfo targetNode = null;
 
-        int event = getConfig().getWechatAfterOpenHongBaoEvent();
+        int event = (int) SPUtil.get(getContext(), Config.KEY_WECHAT_AFTER_OPEN_HONGBAO, 0);
 
-        Log.e(Config.TAG,"抢到红包后处理模式 "+event +" 规则: 0-拆 1-看手气 2-静静地看着");
+        Log.e(Config.TAG,"抢到红包后处理模式->"+event +"  规则: 0-拆 1-看手气 2-静静地看着");
 
         int wechatVersion = getWechatVersion();
         if (event == Config.WX_AFTER_OPEN_HONGBAO) { //拆红包
@@ -290,6 +292,9 @@ public class WechatAccessbilityJob extends BaseAccessbilityJob {
             return;
         }
 
+        /**
+         * 设置延迟拆红包
+         */
         if (targetNode != null) {
             final AccessibilityNodeInfo n = targetNode;
             long sDelayTime = getConfig().getWechatOpenDelayTime();
@@ -314,9 +319,10 @@ public class WechatAccessbilityJob extends BaseAccessbilityJob {
     private void handleChatListHongBao() {
         Log.e(Config.TAG, "收到聊天里的红包");
 
-        int mode = getConfig().getWechatMode();
+        int mode = (int) SPUtil.get(getContext(), Config.KEY_WECHAT_MODE, 0);
 
-        Log.e(Config.TAG, "抢红包模式" + mode);
+        Log.e(Config.TAG,"抢红包模式->"+mode +"  规则: 0-自动 1-抢单 2-抢群 3-看");
+
         if (mode == Config.WX_MODE_3) { //只读模式
             return;
         }

@@ -2,7 +2,6 @@ package com.qianghongbao.libin.job;
 
 import android.view.accessibility.AccessibilityEvent;
 
-import com.qianghongbao.libin.notification.IStatusBarNotification;
 import com.qianghongbao.libin.service.QiangHongBaoService;
 
 /**
